@@ -24,7 +24,7 @@ $(document).ready(function() {
 
 	// work node names
 	$('tr:first td:gt(0)').each(function(index) {
-		data.nodes[data.nodes.length] = { nodeName: this.innerHTML, group: index*100 };
+		data.nodes[data.nodes.length] = { nodeName: this.innerHTML, group: index*150 };
 	});
 	
 	for(i = 0; i < values.length; i++) {
