@@ -28,12 +28,12 @@ $(document).ready(function() {
 	$residenceNodes = $('td.s0');
 	residenceNodeCount = $residenceNodes.length;
 	$residenceNodes.each(function(index) {
-		data.nodes[data.nodes.length] = { nodeName: this.innerHTML, group: 1 };
+		data.nodes[data.nodes.length] = { nodeName: this.innerHTML, group: index*50 };
 	});
 
 	// work node names
 	$('tr:first td:gt(0)').each(function(index) {
-		data.nodes[data.nodes.length] = { nodeName: this.innerHTML, group: 70 };
+		data.nodes[data.nodes.length] = { nodeName: this.innerHTML, group: index*50 };
 	});
 	
 	for(i = 0; i < values.length; i++) {

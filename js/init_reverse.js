@@ -14,6 +14,7 @@ $(document).ready(function() {
 		value;
 	
 	// values
+	//rowIndex = $('td.s1').length/14 - 1;
 	$('td.s1').each(function(index) {
 		if(index % 14 === 0 && index != 0) {
 			row++;
@@ -27,20 +28,23 @@ $(document).ready(function() {
 	// residence node names
 	$residenceNodes = $('td.s0');
 	residenceNodeCount = $residenceNodes.length;
-	$residenceNodes.each(function(index) {
-		data.nodes[data.nodes.length] = { nodeName: this.innerHTML, group: 1 };
-	});
+	//$residenceNodes.each(function(index) {
+	for ( var index = (residenceNodeCount-1); index>-1; index-- ) {
+		data.nodes[data.nodes.length] = { nodeName: $residenceNodes.eq(index).text(), group: index*50 };
+	}
+	//});
 
 	// work node names
 	$('tr:first td:gt(0)').each(function(index) {
-		data.nodes[data.nodes.length] = { nodeName: this.innerHTML, group: 70 };
+		data.nodes[data.nodes.length] = { nodeName: this.innerHTML, group: index*50 };
 	});
 	
 	for(i = 0; i < values.length; i++) {
 		for(j = 0; j < 14; j++) {
 			value = values[i][j];
 			if(value != 0) {
-				data.links[data.links.length] = { source: i, target: (j + residenceNodeCount), value: (value / 80000) };
+				//data.links[data.links.length] = { source: i, target: (j + residenceNodeCount), value: (value / 80000) };
+				data.links[data.links.length] = { source: (residenceNodeCount-i-1), target: (j + residenceNodeCount), value: (value / 80000) };
 			}
 		}
 	}

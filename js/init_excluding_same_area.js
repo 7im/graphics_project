@@ -24,14 +24,14 @@ $(document).ready(function() {
 
 	// work node names
 	$('tr:first td:gt(0)').each(function(index) {
-		data.nodes[data.nodes.length] = { nodeName: this.innerHTML, group: 1 };
+		data.nodes[data.nodes.length] = { nodeName: this.innerHTML, group: index*100 };
 	});
 	
 	for(i = 0; i < values.length; i++) {
 		for(j = 0; j < 14; j++) {
 			value = values[i][j];
 			if(value != 0) {
-				data.links[data.links.length] = { source: i, target: j, value: (value / 13000) };
+				data.links[data.links.length] = { source: i, target: j, value: (value / 10000) };
 			}
 		}
 	}
