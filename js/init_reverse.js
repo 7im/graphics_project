@@ -66,8 +66,10 @@ $(document).ready(function() {
 	arc.link.add(pv.Line);
 	
 	arc.node.add(pv.Dot)
-		.size(function(d) d.linkDegree + 10)
-		.fillStyle(pv.Colors.category19().by(function(d) d.group))
+		.size(function(d) { return d.linkDegree + 10})
+		.fillStyle(pv.Colors.category19().by(function(d){
+			return d.group;
+		}))
 		.lineWidth(0); // removing strokes
 	
 	arc.label.add(pv.Label)
