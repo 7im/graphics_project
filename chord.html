@@ -8,11 +8,22 @@
 		<link type="text/css" rel="stylesheet" href="chord_files/chord.css">
 		<style type="text/css" media="screen">
 			#chart, #chart_year { float: left; }
+
+			.chart {
+				font: 10px sans-serif;
+			}
+			.chart rect {
+			   stroke: white;
+			   fill: steelblue;
+			 }
+			.chart text.bar {
+				fill: white;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="chart"></div>
-		<!--<div id="barChart"></div>-->
+		<div id="barChart"></div>
 		<a id="enlargeChart" href="#">Click here to enlarge.</a>
 		<select name="chart_year" id="chart_year">
 			<option value="2009">2009</option>
@@ -23,6 +34,6 @@
 			<option value="2004">2004</option>
 		</select>
 		<script type="text/javascript" src="chord_files/test.js"></script>
-		<!--<script type="text/javascript" src="chord_files/bar_test.js"></script>-->
+		<script type="text/javascript" src="chord_files/bar_test.js"></script>
 	</body>
 </html>
