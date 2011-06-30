@@ -113,7 +113,7 @@ var w = width || 650,
 var fill = d3.scale.ordinal()
     .domain(d3.range(4))
     //.range(["#000000", "#FFDD89", "#957244", "#F26223"]);
-    .range(["7A0700", "#30547F", "#466964", "#6C8C84", "#A7C4BB", "#86A677", "#5B6B2B", "#BDBB55", "#E5D27F", "#FFF187", "#EB9800", "#E55322", "#961227"]);
+    .range(["#7A0700", "#30547F", "#466964", "#6C8C84", "#A7C4BB", "#86A677", "#5B6B2B", "#BDBB55", "#E5D27F", "#FFF187", "#EB9800", "#E55322", "#961227"]);
 
 var svg = d3.select("#chart")
   .append("svg:svg")
