@@ -3,6 +3,8 @@
 // Read example from : http://mbostock.github.com/d3/tutorial/bar-1.html
 var dummy_data = [4, 10, 20, 12, 13];
 
+// ["#7A0700", "#30547F", "#466964", "#6C8C84", "#A7C4BB", "#86A677", "#5B6B2B", "#BDBB55", "#E5D27F", "#FFF187", "#EB9800", "#E55322", "#961227"]
+
 var h = 220;
 var y = d3.scale.linear()
 	.domain([0, d3.max(dummy_data)])

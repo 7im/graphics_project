@@ -1,6 +1,33 @@
 
 var dummy_data = [4, 10, 20, 12, 13, 47, 53, 28, 98, 35, 76, 83, 10, 39, 85, 69, 9];
 
+
+function getPeopleWorkingFrom(index, year) {
+	var total = 0;
+	for(var i = 0; i < data[year][index].length; i++) {
+		total += data[year][index][i];
+	}
+	return total;
+}
+
+function getPeopleWorkingIn(index, year) {
+	var total = 0;
+	for(var i = 0; i < data[year].length; i++) {
+		total += data[year][i][index];
+	}
+	return total;
+}
+
+var londonDataIndex = 7;
+var peopleWorkingInLondon = getPeopleWorkingIn(londonDataIndex, "2009");
+
+/*
+var dummy_data = [];
+for(var year = 2004; year <= 2009; year++) {
+	dummy_data.push( getPeopleWorkingIn(londonDataIndex, year) );
+}
+*/
+
 var x = d3.scale.linear().domain([0,16]).range([0,600])
 	y = d3.scale.linear().domain([0,100]).range([0,200]),
 	years = d3.scale.linear().domain([1950,2030]).range([0,600]);
@@ -71,7 +98,7 @@ lineChart.append("svg:text")
 	.attr("x", x(8.5))
 	.attr("text-anchor", "middle")
 	.attr("y", 40 + y(0))
-	.text("% urban population")
+	.text("People working in London")
 	.attr("fill", "black")		
 	.attr("font-size", "11pt")
 	.attr("letter-spacing", "3pt")

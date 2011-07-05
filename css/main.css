@@ -1,14 +1,14 @@
-body {
-	/* background: #000; */
-}
 
-/*
 body {
   margin: 0;
   font: 14px/134% Helvetica Neue, sans-serif;
 }
 
+td {
+	padding: 2px;	
+}
 
+/*
 #wrapper {
   display: table-cell;
   vertical-align: middle;
