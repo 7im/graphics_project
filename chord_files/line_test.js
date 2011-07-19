@@ -1,5 +1,5 @@
 
-var dummy_data = [4, 10, 20, 12, 13, 47, 53, 28, 98, 35, 76, 83, 10, 39, 85, 69, 9];
+// var dummy_data = [4, 10, 20, 12, 13, 47, 53, 28, 98, 35, 76, 83, 10, 39, 85, 69, 9];
 
 
 function getPeopleWorkingFrom(index, year) {
@@ -21,16 +21,16 @@ function getPeopleWorkingIn(index, year) {
 var londonDataIndex = 7;
 var peopleWorkingInLondon = getPeopleWorkingIn(londonDataIndex, "2009");
 
-/*
 var dummy_data = [];
 for(var year = 2004; year <= 2009; year++) {
 	dummy_data.push( getPeopleWorkingIn(londonDataIndex, year) );
 }
-*/
+
+// [3882000, 3852000, 3958000, 4030000, 4126000, 4160000]
 
 var x = d3.scale.linear().domain([0,16]).range([0,600])
-	y = d3.scale.linear().domain([0,100]).range([0,200]),
-	years = d3.scale.linear().domain([1950,2030]).range([0,600]);
+	y = d3.scale.linear() // .domain([0,100]) // .range([0,200]),
+	years = d3.scale.linear() // .domain([2004,2009]) // .range([0,600]);
 
 var zeroData = [];
 for (i=0; i<17; i++) {
@@ -39,7 +39,7 @@ for (i=0; i<17; i++) {
 
 var lineChart = d3.select("#lineChart")
   .append("svg:svg")
-	.attr("width", 600)
+	.attr("width", 500)
 	.attr("height", 250)
   .append("svg:g")
 	.attr("transform", "translate(0,200)");
@@ -67,7 +67,7 @@ lineChart.append("svg:line")
 	
 // x tick marks
 lineChart.selectAll(".yearLabel")
-	.data([1950, 2011, 2030])
+	.data([2004, 2009])
   .enter().append("svg:text")
 	.attr("class", "yearLabel graphLabel")
 	.attr("x", function(d) { return years(d) })

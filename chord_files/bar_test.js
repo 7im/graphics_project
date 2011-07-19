@@ -1,9 +1,14 @@
 
 //var dummy_data = [7000, 7000, 1000, 4000, 7000, 7000, 12000, 3374000, 234000, 21000, 7000, 10000, 0, 6000];
 // Read example from : http://mbostock.github.com/d3/tutorial/bar-1.html
-var dummy_data = [4, 10, 20, 12, 13];
+var dummy_data = [];
 
-// ["#7A0700", "#30547F", "#466964", "#6C8C84", "#A7C4BB", "#86A677", "#5B6B2B", "#BDBB55", "#E5D27F", "#FFF187", "#EB9800", "#E55322", "#961227"]
+var year = 2009;
+for(var i = 0; i < data[year].length; i++) {
+	dummy_data.push( getPeopleWorkingIn(i, year) );
+}
+
+var fillColours = ["#7A0700", "#30547F", "#466964", "#6C8C84", "#A7C4BB", "#86A677", "#5B6B2B", "#BDBB55", "#E5D27F", "#FFF187", "#EB9800", "#E55322", "#961227"];
 
 var h = 220;
 var y = d3.scale.linear()
@@ -14,7 +19,6 @@ var x = d3.scale.ordinal()
 	.domain(dummy_data)
 	.rangeBands([0, 120]);
 
-
 var chart = d3.select("#barChart")
   .append("svg:svg")
 	.attr("class", "chart")
@@ -24,7 +28,8 @@ var chart = d3.select("#barChart")
   .append("svg:g")
 	.attr("transform", "translate(10,0)");
 
-/*chart.selectAll("line")
+/*
+chart.selectAll("line")
 	.data(x.ticks(10))
   .enter().append("svg:line")
 	.attr("x1", x)
@@ -40,7 +45,8 @@ chart.selectAll("text.rule")
 	.attr("y", 0)
 	.attr("dy", -3)
 	.attr("text-anchor", "middle")
-	.text(String);*/
+	.text(String);
+*/
 
 chart.selectAll("rect")
 	.data(dummy_data)
@@ -48,7 +54,10 @@ chart.selectAll("rect")
 	.attr("x", x)
 	.attr("y", function(d) { return h - parseInt(y(d), 10); })
 	.attr("width", x.rangeBand())
-	.attr("height", y);
+	.attr("height", y)
+	.each(function(datum, index) {
+		d3.select(this).attr("fill", fillColours[index]);
+	})
 
 chart.selectAll("text.bar")
 	.data(dummy_data)
