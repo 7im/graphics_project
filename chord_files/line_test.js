@@ -1,6 +1,4 @@
-
-// var dummy_data = [4, 10, 20, 12, 13, 47, 53, 28, 98, 35, 76, 83, 10, 39, 85, 69, 9];
-
+var line_data = [ 8, 44, 30, 54 ];
 
 function getPeopleWorkingFrom(index, year) {
 	var total = 0;
@@ -21,19 +19,19 @@ function getPeopleWorkingIn(index, year) {
 var londonDataIndex = 7;
 var peopleWorkingInLondon = getPeopleWorkingIn(londonDataIndex, "2009");
 
-var dummy_data = [];
+/*
+var line_data = [];
 for(var year = 2004; year <= 2009; year++) {
-	dummy_data.push( getPeopleWorkingIn(londonDataIndex, year) );
+	line_data.push( getPeopleWorkingIn(londonDataIndex, year) );
 }
+*/
 
-// [3882000, 3852000, 3958000, 4030000, 4126000, 4160000]
-
-var x = d3.scale.linear().domain([0,16]).range([0,600])
-	y = d3.scale.linear() // .domain([0,100]) // .range([0,200]),
-	years = d3.scale.linear() // .domain([2004,2009]) // .range([0,600]);
+var x = d3.scale.linear().domain([0,line_data.length]).range([0,600]);
+	y = d3.scale.linear();
+	years = d3.scale.linear();
 
 var zeroData = [];
-for (i=0; i<17; i++) {
+for (i = 0; i <= line_data.length; i++) {
 	zeroData.push({"Value": 0})
 }
 
@@ -51,23 +49,24 @@ var line = d3.svg.line()
 
 // y-axis	
 lineChart.append("svg:line")
-	.attr("x1", x(16))
+	.attr("x1", x(line_data.length))
 	.attr("y1", y(0))
-	.attr("x2", x(16))
+	.attr("x2", x(line_data.length))
 	.attr("y2", -1 * y(100))
-	.attr("stroke", "#000")
+	.attr("stroke", "#ccc")
 
 // x-axis	
 lineChart.append("svg:line")
 	.attr("x1", x(0))
 	.attr("y1", y(0))
-	.attr("x2", x(16))
+	.attr("x2", x(line_data.length))
 	.attr("y2", y(0))
-	.attr("stroke", "#000")
-	
+	.attr("stroke", "#ccc")
+/*
+
 // x tick marks
 lineChart.selectAll(".yearLabel")
-	.data([2004, 2009])
+	.data([2, 40, 150])
   .enter().append("svg:text")
 	.attr("class", "yearLabel graphLabel")
 	.attr("x", function(d) { return years(d) })
@@ -88,29 +87,21 @@ lineChart.selectAll(".pctLabel")
 	.data([50, 100])
   .enter().append("svg:text")
 	.attr("class", "pctLabel graphLabel")
-	.attr("x", 25 + x(16))
+	.attr("x", 25 + x(line_data.length))
 	.attr("y", function(d) { return -1 * y(d) })
 	.attr("dy", 5)
 	.text(function(d) { return d + "%" })
 
-// graph label
-lineChart.append("svg:text")
-	.attr("x", x(8.5))
-	.attr("text-anchor", "middle")
-	.attr("y", 40 + y(0))
-	.text("People working in London")
-	.attr("fill", "black")		
-	.attr("font-size", "11pt")
-	.attr("letter-spacing", "3pt")
-	.attr("font-family", "Arial")	
+*/
 
-// urban population graph line
+var lineColor = colors[i];
+
 lineChart.append("svg:path")
 	.attr("id", "line")
 	.attr("d", line(zeroData))
-	.attr("stroke", "#000")
+	.attr("stroke",  lineColor)
 	.attr("fill", "none")
-	.attr("stroke-width", 1)
+	.attr("stroke-width", 5)
 	
-d3.select("#line").attr('d', line(dummy_data));
+d3.select("#line").attr('d', line(line_data));
 	

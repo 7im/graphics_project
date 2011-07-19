@@ -97,6 +97,7 @@ var data = {
 var currentYear = 2009;
 var currentData = data[currentYear];
 var chordChart = drawChord(currentData);
+var colors = ["#7A0700", "#30547F", "#466964", "#6C8C84", "#A7C4BB", "#86A677", "#5B6B2B", "#BDBB55", "#E5D27F", "#FFF187", "#EB9800", "#E55322", "#961227"];
 
 function drawChord (dataMatrix, width, height) {
 
