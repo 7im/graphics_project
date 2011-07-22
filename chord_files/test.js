@@ -233,7 +233,8 @@ function redrawChord(dataMatrix, width, height) {
 document.getElementById('chart_year').onchange = function() {
 	var value = this.value;
   currentYear = this.value;
-	redrawChord(data[value]);	
+	redrawChord(data[value]);
+	redrawBarChart(value);	
 };
 
 document.getElementById('enlargeChart').onclick = function() {
