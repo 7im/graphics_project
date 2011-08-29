@@ -1,5 +1,3 @@
-
-//var dummy_data = [7000, 7000, 1000, 4000, 7000, 7000, 12000, 3374000, 234000, 21000, 7000, 10000, 0, 6000];
 // Read example from : http://mbostock.github.com/d3/tutorial/bar-1.html
 var barChart;
 var dummy_data = [];
@@ -34,26 +32,6 @@ function drawBarChart(data) {
 		.style("margin-left", "32px") // Tweak alignment…
 	  .append("svg:g")
 
-	/*
-	barChart.selectAll("line")
-		.data(x.ticks(10))
-	  .enter().append("svg:line")
-		.attr("x1", x)
-		.attr("x2", x)
-		.attr("y1", 0)
-		.attr("y2", 120)
-		.attr("stroke", "#ccc");
-
-	barChart.selectAll("text.rule")
-		.data(x.ticks(10))
-	  .enter().append("svg:text")
-		.attr("x", x)
-		.attr("y", 0)
-		.attr("dy", -3)
-		.attr("text-anchor", "middle")
-		.text(String);
-	*/
-
 	barChart.selectAll("rect")
 		.data(data)
 	  .enter().append("svg:rect")
@@ -82,7 +60,7 @@ function drawBarChart(data) {
 
 	barChart.append("svg:line")
 		.attr("x1", 0)
-		.attr("x2", 120)
+		.attr("x2", w)
 		.attr("y1", h)
 		.attr("y2", h)
 		.attr("stroke", "#000");

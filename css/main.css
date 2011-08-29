@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font: 14px/134% Helvetica Neue, sans-serif;
@@ -7,18 +6,3 @@ body {
 td {
 	padding: 2px;	
 }
-
-/*
-#wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-
-#fig {
-  position: relative;
-  margin: auto;
-	width: 880px;
-	height: 400px;
-}
-*/
